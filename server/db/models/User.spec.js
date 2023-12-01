@@ -1,4 +1,5 @@
 /* global describe beforeEach it */
+require('dotenv').config();
 
 const {expect} = require('chai')
 const { db, models: { User } } = require('../index')
