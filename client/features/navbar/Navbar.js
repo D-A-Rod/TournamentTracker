@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>Tournament Tracker</h1>
+      <h1>Tournament Tracker To stay up to date</h1>
       <nav>
         {isLoggedIn ? (
           <div>
