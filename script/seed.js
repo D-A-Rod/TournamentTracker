@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Teams },
+  models: { User, Team, Player },
 } = require("../server/db");
 
 /**
@@ -19,34 +19,90 @@ async function seed() {
     User.create({ username: "murphy", password: "123" }),
   ]);
 
-  const teams = await Promise.all([
-    Teams.create({
+  const team = await Promise.all([
+    Team.create({
       teamname: "longhorns",
       agegroup: "15",
       coach: "dan rodriguez",
-      playerfirstname: "vic",
-      playerlastname: "Rodriguez",
+      wins: 4,
+      losses: 1,
     }),
-    Teams.create({
+    Team.create({
       teamname: "rattlers",
       agegroup: "15",
-      coach: "dan rodriguez",
-      playerfirstname: "Crew",
-      playerlastname: "Rodriguez",
+      coach: "vick rodriguez",
+      wins: 3,
+      losses: 2,
+    }),
+    Team.create({
+      teamname: "Jacks",
+      agegroup: "15",
+      coach: "noel rodriguez",
+      wins: 2,
+      losses: 3,
+    }),
+    Team.create({
+      teamname: "north marion",
+      agegroup: "15",
+      coach: "randy brock",
+      wins: 3,
+      losses: 2,
+    }),
+    Team.create({
+      teamname: "sidewinders",
+      agegroup: "13",
+      coach: "randy johnson",
+      wins: 5,
+      losses: 0,
+    }),
+    Team.create({
+      teamname: "trash pandas",
+      agegroup: "13",
+      coach: "jimmy deen",
+      wins: 3,
+      losses: 2,
+    }),
+    Team.create({
+      teamname: "barons",
+      agegroup: "13",
+      coach: "micheal jordan",
+      wins: 3,
+      losses: 2,
+    }),
+    Team.create({
+      teamname: "red sox",
+      agegroup: "13",
+      coach: "big papi",
+      wins: 2,
+      losses: 3,
+    }),
+  ]);
+
+  const player = await Promise.all([
+    Player.create({
+      playerfirstname: "crew",
+      playerlastname: "rodriguez",
+      teamId: team[0].id,
+    }),
+    Player.create({
+      playerfirstname: "john",
+      playerlastname: "smith",
+      teamId: team[1].id,
     }),
   ]);
 
   console.log(`seeded ${users.length} users`);
-  console.log(`seeded ${teams.length} Teams`);
+  console.log(`seeded ${team.length} Teams`);
+  console.log(`seeded ${player.length} players`);
   console.log(`seeded successfully`);
   return {
     users: {
       cody: users[0],
       murphy: users[1],
     },
-    teams: {
-      Longhorns: teams[0],
-      rattlers: teams[1],
+    team: {
+      Longhorns: team[0],
+      rattlers: team[1],
     },
   };
 }

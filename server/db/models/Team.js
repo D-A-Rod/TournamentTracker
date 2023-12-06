@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const Teams = db.define("teams", {
+const Team = db.define("team", {
   teamname: {
     type: Sequelize.STRING,
     unique: true,
@@ -13,12 +13,14 @@ const Teams = db.define("teams", {
   coach: {
     type: Sequelize.STRING,
   },
-  playerfirstname: {
-    type: Sequelize.STRING,
+  wins: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
-  playerlastname: {
-    type: Sequelize.STRING,
+  losses: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
 });
 
-module.exports = Teams;
+module.exports = Team;

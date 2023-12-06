@@ -20,6 +20,7 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "baseball-field-component": "^0.1.54",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
     "dotenv": "^16.3.1",
@@ -27,6 +28,8 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
