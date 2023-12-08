@@ -63,15 +63,17 @@ const Navbar = () => {
         {isLoggedIn ? (
           <div>
             <Link to="/home">Home</Link>
-
             <Link to="/teamform">Team Form</Link>
+            <Link to="/baseballfield">Baseball field</Link>
+            <Link to="/brackets">Brackets</Link>
+
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
           </div>
         ) : (
           <div>
-            <Link to="/teamform">Team Form</Link>
+            {/* <Link to="/teamform">Team Form</Link> */}
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
           </div>

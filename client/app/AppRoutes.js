@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
 import TeamForm from "../features/teamForm/TeamForm";
+import FieldComponent from "../features/baseballField/BaseballField";
+import Bracket from "../features/bracket/Bracket";
 import { me } from "./store";
 
 const AppRoutes = () => {
@@ -21,6 +23,8 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/teamform" element={<TeamForm />} />
+          <Route path="/baseballfield" element={<FieldComponent />} />
+          <Route path="/brackets" element={<Bracket />} />
         </Routes>
       ) : (
         <Routes>
@@ -36,10 +40,10 @@ const AppRoutes = () => {
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
           />
-          <Route
+          {/* <Route
             path="/teamform"
             element={<TeamForm name="teamform" displayName="Team Form" />}
-          ></Route>
+          ></Route> */}
         </Routes>
       )}
     </div>

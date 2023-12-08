@@ -43,76 +43,81 @@ const TeamForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Team Name:
-        <input
-          type="text"
-          value={teamName}
-          onChange={(e) => setTeamName(e.target.value)}
-          required
-        />
-      </label>
-
-      <label>
-        Age Bracket:
-        <input
-          type="text"
-          value={ageBracket}
-          onChange={(e) => setAgeBracket(e.target.value)}
-          required
-        />
-      </label>
-
-      <label>
-        Coach:
-        <input
-          type="text"
-          value={coach}
-          onChange={(e) => setCoach(e.target.value)}
-          required
-        />
-      </label>
-
+    <div>
       <div>
-        <label>
-          Player First Name:
-          <input
-            type="text"
-            value={newPlayerFirstName}
-            onChange={(e) => setNewPlayerFirstName(e.target.value)}
-            required
-          />
-        </label>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Team Name:
+            <input
+              type="text"
+              value={teamName}
+              onChange={(e) => setTeamName(e.target.value)}
+              required
+            />
+          </label>
 
-        <label>
-          Player Last Name:
-          <input
-            type="text"
-            value={newPlayerLastName}
-            onChange={(e) => setNewPlayerLastName(e.target.value)}
-            required
-          />
-        </label>
+          <label>
+            Age Bracket:
+            <input
+              type="text"
+              value={ageBracket}
+              onChange={(e) => setAgeBracket(e.target.value)}
+              required
+            />
+          </label>
 
-        <button type="button" onClick={addPlayer}>
-          Add Player
-        </button>
+          <label>
+            Coach:
+            <input
+              type="text"
+              value={coach}
+              onChange={(e) => setCoach(e.target.value)}
+              required
+            />
+          </label>
+
+          <div>
+            <label>
+              Player First Name:
+              <input
+                type="text"
+                value={newPlayerFirstName}
+                onChange={(e) => setNewPlayerFirstName(e.target.value)}
+                required
+              />
+            </label>
+
+            <label>
+              Player Last Name:
+              <input
+                type="text"
+                value={newPlayerLastName}
+                onChange={(e) => setNewPlayerLastName(e.target.value)}
+                required
+              />
+            </label>
+
+            <button type="button" onClick={addPlayer}>
+              Add Player
+            </button>
+          </div>
+
+          <label>
+            Players:
+            <ul>
+              {players.map((player, index) => (
+                <li key={index}>
+                  {player.firstName} {player.lastName}
+                </li>
+              ))}
+            </ul>
+          </label>
+
+          <button type="submit">Submit</button>
+        </form>
       </div>
 
-      <label>
-        Players:
-        <ul>
-          {players.map((player, index) => (
-            <li key={index}>
-              {player.firstName} {player.lastName}
-            </li>
-          ))}
-        </ul>
-      </label>
-
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
 };
 
