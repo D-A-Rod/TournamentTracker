@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { models } = require("../db"); 
+const { models } = require("../db");
 
 const { Team, Player } = models;
 
@@ -7,14 +7,14 @@ module.exports = router;
 
 router.get("/", async (req, res, next) => {
   try {
-    const teams = await Team.findAll({
+    const allTeams = await Team.findAll({
       attributes: ["id", "teamname", "agegroup", "coach"],
       include: {
         model: Player,
         attributes: ["id", "playerfirstname", "playerlastname"],
       },
     });
-    res.json(teams);
+    res.json(allTeams);
   } catch (err) {
     next(err);
   }
@@ -45,7 +45,6 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-
 
 router.put("/:teamId/updateStats", async (req, res, next) => {
   try {

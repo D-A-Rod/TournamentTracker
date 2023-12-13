@@ -9,12 +9,21 @@ import Bracket from "../features/bracket/Bracket";
 import { me } from "./store";
 
 const AppRoutes = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isLoggedIn = useSelector(
+    (state) => !!state.auth.me && !!state.auth.me.id
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(me());
-  }, []);
+  }, [dispatch]);
+
+  // if (!state.auth.me) {
+  //   // Me action is still loading, you might want to render a loading spinner or some placeholder.
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <div>
