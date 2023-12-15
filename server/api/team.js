@@ -42,6 +42,7 @@ router.post("/", async (req, res, next) => {
 
     res.status(201).json(newTeam);
   } catch (error) {
+    console.error("Error from api route", error);
     next(error);
   }
 });

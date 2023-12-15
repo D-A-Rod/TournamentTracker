@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchAddTeamAsync } from "./teamFormSlice";
 
 const TeamForm = () => {
-  const [teamName, setTeamName] = useState("");
-  const [ageBracket, setAgeBracket] = useState("");
+  const dispatch = useDispatch();
+
+  const [teamname, setTeamName] = useState("");
+  const [agegroup, setAgeGroup] = useState("");
   const [coach, setCoach] = useState("");
   const [players, setPlayers] = useState([]);
   const [newPlayerFirstName, setNewPlayerFirstName] = useState("");
@@ -11,8 +15,8 @@ const TeamForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Team Name:", teamName);
-    console.log("Age Bracket:", ageBracket);
+    console.log("Team Name:", teamname);
+    console.log("Age Bracket:", agegroup);
     console.log("Coach:", coach);
     console.log("Players:", players);
 
@@ -23,9 +27,19 @@ const TeamForm = () => {
       ]);
     }
 
+    dispatch(
+      fetchAddTeamAsync({
+        teamname: teamname,
+        agegroup: agegroup,
+        coach: coach,
+        playerfirstname: newPlayerFirstName,
+        playerlastname: newPlayerLastName,
+      })
+    );
+
     // Reset form fields
     setTeamName("");
-    setAgeBracket("");
+    setAgeGroup("");
     setCoach("");
     setNewPlayerFirstName("");
     setNewPlayerLastName("");
@@ -50,7 +64,7 @@ const TeamForm = () => {
             Team Name:
             <input
               type="text"
-              value={teamName}
+              value={teamname}
               onChange={(e) => setTeamName(e.target.value)}
               required
             />
@@ -60,8 +74,8 @@ const TeamForm = () => {
             Age Bracket:
             <input
               type="text"
-              value={ageBracket}
-              onChange={(e) => setAgeBracket(e.target.value)}
+              value={agegroup}
+              onChange={(e) => setAgeGroup(e.target.value)}
               required
             />
           </label>
@@ -116,7 +130,6 @@ const TeamForm = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-
     </div>
   );
 };
