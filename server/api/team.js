@@ -8,7 +8,7 @@ module.exports = router;
 router.get("/", async (req, res, next) => {
   try {
     const allTeams = await Team.findAll({
-      attributes: ["id", "teamname", "agegroup", "coach"],
+      attributes: ["id", "teamname", "agegroup", "coach", "wins", "losses"],
       include: {
         model: Player,
         attributes: ["id", "playerfirstname", "playerlastname"],
