@@ -29,6 +29,7 @@ const Bracket = () => {
 
       <div>
         <h2>13U Age Bracket</h2>
+        <span>Pool play</span>
         {age13Teams.length > 0 ? (
           age13Teams.map((team) => (
             <div key={team.id} className="team-card">
