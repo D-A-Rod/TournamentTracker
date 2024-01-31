@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import authReducer from "../features/auth/authSlice";
-import allTeamsSlice from "../features/bracket/bracketSlice";
+import allTeamsSlice from "../features/teams/TeamSlice";
 import teamFormSlice from "../features/teamForm/teamFormSlice";
 
 const store = configureStore({

@@ -5,7 +5,7 @@ import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
 import TeamForm from "../features/teamForm/TeamForm";
 import FieldComponent from "../features/baseballField/BaseballField";
-import Bracket from "../features/bracket/Bracket";
+import Bracket from "../features/teams/Teams";
 import { me } from "./store";
 
 const AppRoutes = () => {
